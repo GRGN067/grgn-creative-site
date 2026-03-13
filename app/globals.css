@@ -29,16 +29,27 @@ a {
 }
 
 .snap-container {
-  height: 100dvh;
+  min-height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
 .snap-section {
-  min-height: 100dvh;
-  scroll-snap-align: start;
+  min-height: auto;
+  scroll-snap-align: unset;
+}
+
+@media (min-width: 1024px) {
+  .snap-container {
+    height: 100dvh;
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-section {
+    min-height: 100dvh;
+    scroll-snap-align: start;
+  }
 }
 
 /* Global Scrollbar */
