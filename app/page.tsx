@@ -194,7 +194,7 @@ export default function Home() {
 
               <Reveal delay={100}>
                 <h2 className="text-[48px] font-light leading-[0.92] tracking-[-0.05em] text-white/90 sm:text-[64px] md:text-[78px] lg:text-[88px]">
-                  Creative <span className="font-semibold">Agency</span>
+                  Yaratıcılık <span className="font-semibold">Ajansı</span>
                 </h2>
               </Reveal>
 
@@ -336,7 +336,7 @@ export default function Home() {
               <ProjectCard
                 img="/ortbas-project.png"
                 title="Örtbas"
-                category="Creative Direction / Short Film"
+                category="Yaratıcı Yönetmenlik / Kısa Film"
                 desc="“Gölgelerden kaçamazsın.” Yönetmenlik, kurgu ve hikaye geliştirme süreçlerinin tamamı tarafımdan yürütülen kısa film projesi."
                 href="/projeler/ortbas"
               />
