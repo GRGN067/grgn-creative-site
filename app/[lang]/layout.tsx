@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: isEn
-      ? "GRGN Creative | Creative Digital Solutions"
-      : "GRGN Creative | Kreatif Dijital Çözümler",
+      ? "GRGN Creative | Digital Agency, Web Design & Brand Building"
+      : "GRGN Creative | Dijital Ajans, Web Tasarım & Marka Kurucu",
     description: isEn
-      ? "GRGN Creative offers modern web design, social media design and brand identity solutions."
-      : "GRGN Creative, modern web tasarım, sosyal medya tasarımı ve kurumsal kimlik çözümleri sunar.",
+      ? "GRGN Creative is a digital agency offering web design, brand identity, social media management, content production and creative digital solutions."
+      : "GRGN Creative; web tasarım, kurumsal kimlik, sosyal medya yönetimi, içerik üretimi ve yaratıcı dijital çözümler sunan profesyonel dijital ajanstır.",
     alternates: {
       canonical: `https://grgncreative.com/${lang}`,
       languages: {
@@ -23,11 +23,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         en: "https://grgncreative.com/en",
       },
     },
+    openGraph: {
+      title: isEn
+        ? "GRGN Creative | Digital Agency, Web Design & Brand Building"
+        : "GRGN Creative | Dijital Ajans, Web Tasarım & Marka Kurucu",
+      description: isEn
+        ? "Web design, brand identity, social media management and content production for modern brands."
+        : "Web tasarım, kurumsal kimlik, sosyal medya yönetimi ve içerik üretimi ile markalar için bütüncül dijital çözümler.",
+      url: `https://grgncreative.com/${lang}`,
+      siteName: "GRGN Creative",
+      locale: isEn ? "en_US" : "tr_TR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: isEn
+        ? "GRGN Creative | Digital Agency, Web Design & Brand Building"
+        : "GRGN Creative | Dijital Ajans, Web Tasarım & Marka Kurucu",
+      description: isEn
+        ? "Web design, brand identity, social media management and content production for modern brands."
+        : "Web tasarım, kurumsal kimlik, sosyal medya yönetimi ve içerik üretimi ile markalar için bütüncül dijital çözümler.",
+    },
   };
 }
 
-export default async function LangLayout({
-  children,
-}: Props) {
+export default async function LangLayout({ children }: Props) {
   return <>{children}</>;
 }
