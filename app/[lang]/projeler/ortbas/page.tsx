@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 const content = {
@@ -52,6 +53,51 @@ const content = {
       "Through this project, we made visible our abilities in visual storytelling, rhythm, atmosphere building and carrying the story through scene language.",
   },
 } as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const isEn = lang === "en";
+
+  return {
+    title: isEn
+      ? "Ortbas Short Film Project | GRGN Creative"
+      : "Örtbas Kısa Film Projesi | GRGN Creative",
+
+    description: isEn
+      ? "A short film project directed, acted and edited by GRGN Creative. A cinematic storytelling work focused on atmosphere and narrative depth."
+      : "GRGN Creative tarafından yönetilen, oynanan ve kurgulanan kısa film projesi. Atmosfer ve hikaye yoğunluğu odaklı sinematik bir çalışma.",
+
+    keywords: [
+      "örtbas kısa film",
+      "kısa film projesi",
+      "yönetmenlik projesi",
+      "kısa film örneği",
+      "film prodüksiyon",
+      "grgn creative proje",
+    ],
+
+    alternates: {
+      canonical: `https://grgncreative.com/${lang}/projeler/ortbas`,
+    },
+
+    openGraph: {
+      title: isEn
+        ? "Ortbas Short Film | GRGN Creative"
+        : "Örtbas Kısa Film | GRGN Creative",
+      description: isEn
+        ? "Cinematic short film project by GRGN Creative."
+        : "GRGN Creative tarafından yapılan sinematik kısa film projesi.",
+      url: `https://grgncreative.com/${lang}/projeler/ortbas`,
+      siteName: "GRGN Creative",
+      locale: isEn ? "en_US" : "tr_TR",
+      type: "video.movie",
+    },
+  };
+}
 
 export default async function OrtbasProjectPage({
   params,

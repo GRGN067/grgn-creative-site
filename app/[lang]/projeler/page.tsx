@@ -1,7 +1,56 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getDictionary } from "../../../lib/dictionaries";
 
-const featuredProjects = (lang: string, t: ReturnType<typeof getDictionary>) => [
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const isEn = lang === "en";
+
+  return {
+    title: isEn
+      ? "Projects & Case Studies | GRGN Creative"
+      : "Projeler & Çalışmalar | GRGN Creative",
+
+    description: isEn
+      ? "Explore GRGN Creative's projects including brand identity, web design, social media and creative productions."
+      : "GRGN Creative’in kurumsal kimlik, web tasarım, sosyal medya ve yaratıcı projelerinden oluşan çalışmalarını inceleyin.",
+
+    keywords: [
+      "grgn creative projeler",
+      "ajans projeleri",
+      "web tasarım örnekleri",
+      "kurumsal kimlik örnekleri",
+      "dijital ajans portfolyo",
+      "creative agency portfolio",
+    ],
+
+    alternates: {
+      canonical: `https://grgncreative.com/${lang}/projeler`,
+    },
+
+    openGraph: {
+      title: isEn
+        ? "Projects & Case Studies | GRGN Creative"
+        : "Projeler | GRGN Creative",
+      description: isEn
+        ? "Creative agency portfolio and case studies."
+        : "GRGN Creative proje ve çalışmalar sayfası.",
+      url: `https://grgncreative.com/${lang}/projeler`,
+      siteName: "GRGN Creative",
+      locale: isEn ? "en_US" : "tr_TR",
+      type: "website",
+    },
+  };
+}
+
+const featuredProjects = (
+  lang: string,
+  t: ReturnType<typeof getDictionary>
+) => [
   {
     title: t.project_1_title,
     category: t.project_1_category,
@@ -110,7 +159,11 @@ export default async function ProjectsPage({
 
           <div className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
             {featured.map((project) => (
-              <ProjectCard key={project.href} {...project} cta={t.project_card_cta} />
+              <ProjectCard
+                key={project.href}
+                {...project}
+                cta={t.project_card_cta}
+              />
             ))}
           </div>
         </div>

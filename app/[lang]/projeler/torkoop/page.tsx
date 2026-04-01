@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 const content = {
@@ -48,6 +49,52 @@ const content = {
       "On the label side, a more organized and more attention-grabbing structure was built to strengthen the brand’s perception on the shelf. As a result, both identity and product surface came together under the same visual language.",
   },
 } as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const isEn = lang === "en";
+
+  return {
+    title: isEn
+      ? "Torkoop Brand Identity Project | GRGN Creative"
+      : "Torkoop Kurumsal Kimlik Projesi | GRGN Creative",
+
+    description: isEn
+      ? "Brand identity, logo and label design project created by GRGN Creative for Torkoop to strengthen shelf presence and corporate perception."
+      : "GRGN Creative tarafından Torkoop için hazırlanan kurumsal kimlik, logo ve etiket tasarımı projesi. Raf görünürlüğünü ve kurumsal algıyı güçlendiren çalışma.",
+
+    keywords: [
+      "torkoop",
+      "torkoop kooperatif",
+      "kurumsal kimlik projesi",
+      "etiket tasarımı",
+      "logo tasarımı",
+      "kooperatif marka kimliği",
+      "grgn creative proje",
+    ],
+
+    alternates: {
+      canonical: `https://grgncreative.com/${lang}/projeler/torkoop`,
+    },
+
+    openGraph: {
+      title: isEn
+        ? "Torkoop Brand Identity Project | GRGN Creative"
+        : "Torkoop Kurumsal Kimlik Projesi | GRGN Creative",
+      description: isEn
+        ? "Brand identity and label design project by GRGN Creative for Torkoop."
+        : "GRGN Creative tarafından Torkoop için yapılan kurumsal kimlik ve etiket tasarımı projesi.",
+      url: `https://grgncreative.com/${lang}/projeler/torkoop`,
+      siteName: "GRGN Creative",
+      locale: isEn ? "en_US" : "tr_TR",
+      type: "website",
+    },
+  };
+}
 
 export default async function TorkoopProjectPage({
   params,

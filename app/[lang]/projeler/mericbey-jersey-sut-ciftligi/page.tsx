@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 const content = {
@@ -56,6 +57,51 @@ const content = {
       "The goal was not only to make the brand look good, but also to build trust in the consumer and establish a sustainable communication system capable of converting that trust into sales.",
   },
 } as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const isEn = lang === "en";
+
+  return {
+    title: isEn
+      ? "Meriçbey Project | GRGN Creative"
+      : "Meriçbey Jersey Süt Çiftliği Projesi | GRGN Creative",
+
+    description: isEn
+      ? "Brand strategy, content system and digital positioning project created by GRGN Creative for Meriçbey Jersey Dairy Farm."
+      : "GRGN Creative tarafından Meriçbey Jersey Süt Çiftliği için hazırlanan marka stratejisi, içerik sistemi ve dijital konumlandırma projesi.",
+
+    keywords: [
+      "meriçbey",
+      "meriçbey jersey süt çiftliği",
+      "marka stratejisi",
+      "içerik sistemi",
+      "çiftlik marka çalışması",
+      "grgn creative proje",
+    ],
+
+    alternates: {
+      canonical: `https://grgncreative.com/${lang}/projeler/mericbey-jersey-sut-ciftligi`,
+    },
+
+    openGraph: {
+      title: isEn
+        ? "Meriçbey Project | GRGN Creative"
+        : "Meriçbey Jersey Süt Çiftliği Projesi | GRGN Creative",
+      description: isEn
+        ? "Digital brand project by GRGN Creative for Meriçbey."
+        : "GRGN Creative tarafından Meriçbey için yapılan dijital marka projesi.",
+      url: `https://grgncreative.com/${lang}/projeler/mericbey-jersey-sut-ciftligi`,
+      siteName: "GRGN Creative",
+      locale: isEn ? "en_US" : "tr_TR",
+      type: "website",
+    },
+  };
+}
 
 export default async function MericbeyProjectPage({
   params,
