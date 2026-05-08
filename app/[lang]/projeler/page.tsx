@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getDictionary } from "../../../lib/dictionaries";
-import ProjectsPreviewShowcase from "./ProjectsPreviewShowcase";
-import { PROJECT_ROUTE_SLUGS, getProjectHref } from "./projectRoutes";
 
 export async function generateMetadata({
   params,
@@ -57,21 +55,21 @@ const featuredProjects = (
     title: t.project_1_title,
     category: t.project_1_category,
     desc: t.project_1_desc,
-    href: getProjectHref(lang, PROJECT_ROUTE_SLUGS.mericbey),
+    href: `/${lang}/projeler/mericbey-jersey-sut-ciftligi`,
     img: "/mericbey-project.png",
   },
   {
     title: t.project_2_title,
     category: t.project_2_category,
     desc: t.project_2_desc,
-    href: getProjectHref(lang, PROJECT_ROUTE_SLUGS.torkoop),
+    href: `/${lang}/projeler/torkoop`,
     img: "/torkoop-project.png",
   },
   {
     title: t.project_3_title,
     category: t.project_3_category,
     desc: t.project_3_desc,
-    href: getProjectHref(lang, PROJECT_ROUTE_SLUGS.ortbas),
+    href: `/${lang}/projeler/ortbas`,
     img: "/ortbas-project.png",
   },
 ];
@@ -170,8 +168,6 @@ export default async function ProjectsPage({
           </div>
         </div>
       </section>
-
-      <ProjectsPreviewShowcase lang={lang} />
 
       <section className="px-6 pb-24 md:px-10 md:pb-28">
         <div className="mx-auto max-w-7xl rounded-[32px] border border-white/10 bg-white/[0.03] p-8 md:p-10">
