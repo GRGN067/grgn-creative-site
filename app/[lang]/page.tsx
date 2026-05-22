@@ -150,7 +150,7 @@ export default function Home({
             </div>
 
             <div className="flex items-center gap-2">
-<LanguageToggle lang={lang} mobile />
+              <LanguageToggle lang={lang} mobile />
               <a
                 href="#contact"
                 className="rounded-full border border-white/15 bg-white/[0.05] px-4 py-2 text-xs font-medium text-white/90 backdrop-blur-xl transition hover:bg-white/[0.08]"
@@ -194,7 +194,7 @@ export default function Home({
                 </nav>
 
                 <div className="shrink-0">
-<LanguageToggle lang={lang} />
+                  <LanguageToggle lang={lang} />
                 </div>
               </div>
             </div>
@@ -211,7 +211,9 @@ export default function Home({
               <Reveal delay={100}>
                 <h2 className="text-[48px] font-light leading-[0.92] tracking-[-0.05em] text-white/90 sm:text-[64px] md:text-[78px] lg:text-[88px]">
                   {t.hero_title_bottom_light}{" "}
-                  <span className="font-semibold">{t.hero_title_bottom_bold}</span>
+                  <span className="font-semibold">
+                    {t.hero_title_bottom_bold}
+                  </span>
                 </h2>
               </Reveal>
 
@@ -305,6 +307,102 @@ export default function Home({
                 className="inline-flex rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm text-white/90 transition hover:border-white/20 hover:bg-white/[0.08]"
               >
                 {lang === "en" ? "View All Services" : "Tüm Hizmetleri Gör"}
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section
+        id="live-projects"
+        className="snap-section relative flex min-h-[100dvh] items-center overflow-hidden px-5 py-20 sm:px-6 md:px-10 md:py-28"
+      >
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#02040b_0%,#030611_45%,#010208_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(55,90,210,0.10),transparent_24%),radial-gradient(circle_at_82%_30%,rgba(255,255,255,0.05),transparent_18%),radial-gradient(circle_at_72%_80%,rgba(45,80,200,0.08),transparent_28%)]" />
+        <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(rgba(255,255,255,0.8)_0.45px,transparent_0.45px)] [background-size:4px_4px]" />
+
+        <div className="absolute left-[-8%] top-[10%] h-[340px] w-[340px] rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute right-[-10%] bottom-[8%] h-[420px] w-[420px] rounded-full bg-white/5 blur-3xl" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <Reveal>
+            <div className="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-white/45">
+                  Canlı Deneyimler
+                </p>
+                <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+                  Canlı Projeler
+                </h2>
+                <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8 md:mt-6 md:text-[22px] md:leading-9">
+                  Farklı sektörler için hazırladığımız ön izlemeli arayüzleri
+                  inceleyin, tasarım dilimizi canlı örnekler üzerinden
+                  deneyimleyin.
+                </p>
+              </div>
+
+              <Link
+                href={`/${lang}/projeler`}
+                className="hidden rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm text-white/90 transition hover:border-white/20 hover:bg-white/[0.08] md:inline-flex"
+              >
+                Tüm Projeleri Gör
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <Link
+              href={`/${lang}/projeler/guzellik-vitrini`}
+              className="group block"
+            >
+              <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.03)] backdrop-blur-sm transition duration-300 hover:border-white/20 hover:bg-white/[0.05]">
+                <div className="absolute left-5 top-5 z-20 rounded-full border border-white/15 bg-black/30 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-xl">
+                  Vitrin
+                </div>
+
+                <img
+                  src="/beauty-preview.png"
+                  alt="GRGN Beauty Clinic Preview"
+                  className="h-[260px] w-full object-cover transition duration-700 group-hover:scale-[1.03] sm:h-[320px] md:h-[420px]"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent transition duration-500 group-hover:from-black/75" />
+
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 md:p-8">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/45 sm:text-sm">
+                    Stüdyo Konsepti
+                  </p>
+
+                  <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
+                        GRGN Güzellik
+                      </h3>
+                      <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base md:text-lg">
+                        Premium güzellik ve klinik markaları için hazırlanmış,
+                        kullanıma uygun canlı web konsepti.
+                      </p>
+                    </div>
+
+                    <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-5 py-3 text-sm text-white/90 backdrop-blur-xl transition group-hover:border-white/20 group-hover:bg-white/[0.08]">
+                      <span>Ön İzlemeyi Aç</span>
+                      <span className="transition duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </Reveal>
+
+          <Reveal delay={220}>
+            <div className="mt-10 md:hidden">
+              <Link
+                href={`/${lang}/projeler`}
+                className="inline-flex rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm text-white/90 transition hover:border-white/20 hover:bg-white/[0.08]"
+              >
+                Tüm Projeleri Gör
               </Link>
             </div>
           </Reveal>
